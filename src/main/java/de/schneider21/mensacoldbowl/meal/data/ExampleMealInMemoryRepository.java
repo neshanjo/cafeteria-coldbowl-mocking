@@ -27,4 +27,12 @@ public class ExampleMealInMemoryRepository implements IMealRepository {
     public List<Meal> findAllSortByDateAsc() {
         return Collections.unmodifiableList(allMeals);
     }
+
+    @Override
+    public Meal findByDate(String dateString) {
+        return allMeals.stream()
+                .filter(meal -> dateString.equals(meal.getDate()))
+                .findFirst()
+                .orElse(null);
+    }
 }

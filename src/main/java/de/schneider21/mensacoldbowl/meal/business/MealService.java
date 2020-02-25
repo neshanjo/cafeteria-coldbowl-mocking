@@ -25,4 +25,9 @@ public class MealService implements IMealService {
                 .sorted(Comparator.comparing(Meal::getDate))
                 .collect(Collectors.toList());
     }
+
+    @Override
+    public Meal getMealForDate(String dateString) {
+        return mealRepository.findByDate(dateString);
+    }
 }

@@ -5,4 +5,6 @@ import java.util.List;
 public interface IMealRepository {
 
     List<Meal> findAllSortByDateAsc();
+
+    Meal findByDate(String dateString);
 }
