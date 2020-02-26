@@ -14,6 +14,6 @@ public class Application {
         final HttpServer httpServer = new HttpServer(8080);
         httpServer.registerRestController(new MealController());
         httpServer.start(NanoHTTPD.SOCKET_READ_TIMEOUT, false);
-        System.out.println("Server running on localhost:8080/...");
+        System.out.println("Application: Server running on localhost:8080/...");
     }
 }

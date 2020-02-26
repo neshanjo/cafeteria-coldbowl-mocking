@@ -9,4 +9,6 @@ public interface IMealService {
     List<Meal> getAllMealsSinceDateOrderedByDateAsc(String dateString);
 
     Meal getMealForDate(String dateString);
+
+    Integer calculateColdBowlProbabilityInPercent(Double temperature);
 }

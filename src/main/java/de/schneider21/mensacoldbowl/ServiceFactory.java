@@ -1,9 +1,12 @@
 package de.schneider21.mensacoldbowl;
 
 import de.schneider21.mensacoldbowl.meal.business.IMealService;
+import de.schneider21.mensacoldbowl.meal.business.IWeatherService;
 import de.schneider21.mensacoldbowl.meal.business.MealService;
-import de.schneider21.mensacoldbowl.meal.data.ExampleMealInMemoryRepository;
+import de.schneider21.mensacoldbowl.meal.business.WeatherBitService;
+import de.schneider21.mensacoldbowl.meal.data.ExampleData;
 import de.schneider21.mensacoldbowl.meal.data.IMealRepository;
+import de.schneider21.mensacoldbowl.meal.data.InMemoryRepository;
 
 public class ServiceFactory {
 
@@ -43,6 +46,7 @@ public class ServiceFactory {
 
     private IMealRepository mealRepository;
     private IMealService mealService;
+    private IWeatherService weatherService;
 
     private ServiceFactory() {
         if (PROFILE_FOR_INITIALIZATION == null) {
@@ -54,8 +58,9 @@ public class ServiceFactory {
             throw new IllegalStateException("Production services are not ready yet!");
         }
         // instantiation of services for LOCAL and TEST profile
-        mealRepository = new ExampleMealInMemoryRepository();
-        mealService = new MealService(mealRepository);
+        mealRepository = new InMemoryRepository(ExampleData.EXAMPLE_MEALS);
+        weatherService = new WeatherBitService();
+        mealService = new MealService(mealRepository, weatherService);
     }
 
 

@@ -1,0 +1,9 @@
+GET https://api.met.no/weatherapi/locationforecast/1.9/?lat=60.10&lon=9.58
+Accept: application/json
+
+###
+#ahwupyfb@sharklasers.com 12341234 API-KEY: 78b3d1a6b9b04371825477a5ec1bdda1
+GET https://api.weatherbit.io/v2.0/forecast/daily?city=Kaiserslautern&country=DE&key=78b3d1a6b9b04371825477a5ec1bdda1
+Accept: application/json
+
+###
